@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Code - AI Code Detector</title>
+    <meta name="description" content="Analyze your code to detect if it's AI-generated or human-written.">
+    <link rel="stylesheet" href="css\styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+<body>
+     <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><i class="fa-solid fa-code"></i> DetexAI</a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="overview.html" class="nav-link">Overview</a>
+                <a href="history.html" class="nav-link">History</a>
+                <a href="login.html" class="nav-link active" id="login">Login</a>
+                <a href="analyze.html" class="nav-link btn-primary">Analyze Code</a>
+            </div>
+            <button class="nav-toggle" id="navToggle">☰</button>
+        </div>
+    </nav>
+
+
+    <!-- Analyze Section -->
+    <section class="analyze-page">
+        <div class="container">
+            <div class="hd"><h1 class="page-titl">Analyze <span class="blue">Your Code</span></h1>
+            <p class="page-subtitl">View your previous code analyses and results</p> </div>
+                <div class="analyze-container">
+                <div class="analyze-input-section" id="inputSection">
+                    <textarea id="codeInput" placeholder="Paste your code here..." rows="15"></textarea>
+                    <div class="analyze-actions">
+                        <button onclick="analyzeCode()" class="btn btn-primary btn-lg" id="analyzeBtn">
+                            <span id="analyzeText">Analyze Code</span>
+                        </button>
+                        <button onclick="clearCode()" class="btn btn-secondary">Clear</button>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading-state" id="loadingState" style="display: none;">
+                    <div class="loader"></div>
+                    <p>Analyzing your code...</p>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="resultsSection" style="display: none;">
+                    <div class="results-header">
+                        <h2>Analysis Complete</h2>
+                        <button onclick="resetAnalysis()" class="btn btn-secondary btn-sm" id="dh">Analyze New Code</button>
+                    </div>
+
+                    <div class="results-grid">
+                        <!-- Main Verdict -->
+                        <div class="result-card verdict-card">
+                            <div class="verdict-badge" id="verdictBadge">Human-Written</div>
+                            <div class="confidence-meter">
+                                <div class="confidence-bar" id="confidenceBar"></div>
+                            </div>
+                            <p class="confidence-text">Confidence: <span id="confidenceValue">0%</span></p>
+                        </div>
+
+                        <!-- Pattern Analysis -->
+                        <div class="result-card">
+                            <h3>Pattern Analysis</h3>
+                            <div class="pattern-list" id="patternList">
+                                <!-- Patterns will be inserted here -->
+                            </div>
+                        </div>
+
+                        <!-- Details -->
+                        <div class="result-card full-width">
+                            <h3>Detailed Analysis</h3>
+                            <div class="details-grid" id="detailsGrid">
+                                <!-- Details will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="results-actions">
+                        <a href="history.html" class="btn btn-primary">View History</a>
+                        <button onclick="exportResults()" class="btn btn-secondary">Export Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 DetexAI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js\app.js"></script>
+    <script src="js\analyze.js"></script>
+</body>
+</html>
